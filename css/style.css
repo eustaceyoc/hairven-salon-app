@@ -318,4 +318,47 @@ textarea {
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.14);
 }
 
+/* Gallery (Home Mini Gallery and actual Gallery page) */
+.gallery-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.gallery-thumb {
+  border: none;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.gallery-thumb img {
+  border-radius: 0.8rem;
+  object-fit: cover;
+  height: 140px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.gallery-item {
+  border: none;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.gallery-item img {
+  border-radius: 1rem;
+  height: 190px;
+  object-fit: cover;
+}
 
