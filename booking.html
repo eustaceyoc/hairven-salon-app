@@ -36,7 +36,70 @@
     </div>
   </header>
 
+  <main>
+<!-- Booking Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <h1>Book an Appointment</h1>
+        <p>Choose your preferred service, date, and time. We’ll confirm your booking via email and sms.</p>
+      </div>
+    </section>
 
+<!-- Booking Form -->
+    <section class="section">
+      <div class="container">
+        <form class="booking-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="booking-name">Full name *</label>
+              <input type="text" id="booking-name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="booking-phone">Phone *</label>
+              <input type="tel" id="booking-phone" name="phone" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="booking-email">Email *</label>
+              <input type="email" id="booking-email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="booking-service">Service *</label>
+              <select id="booking-service" name="service" required>
+                <option value="">Select a service</option>
+                <option value="hair">Hair styling / dyeing</option>
+                <option value="hair">Braids / Weaves</option>
+                <option value="spa">Spa &amp; Massage Services</option>
+                <option value="beauty">Nail extensions, manicure &amp; pedicure</option>
+                <option value="beauty">Makeup</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="booking-date">Preferred date *</label>
+              <input type="date" id="booking-date" name="date" required />
+            </div>
+            <div class="form-group">
+              <label for="booking-time">Preferred time *</label>
+              <input type="time" id="booking-time" name="time" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="booking-notes">Notes (optional)</label>
+            <textarea id="booking-notes" name="notes" rows="4" placeholder="Tell us about the service you want or any special requests."></textarea>
+          </div>
+
+          <button type="submit" class="btn">Submit booking</button>
+          <p class="form-message" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
 
 <!-- Footer -->
  <footer class="site-footer">
