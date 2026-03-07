@@ -1,5 +1,4 @@
 /* Base Styles */
-
 *,
 *::before,
 *::after {
@@ -51,3 +50,49 @@ textarea {
   font-family: inherit;
 }
 
+/* Layout Helpers */
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.section-alt {
+  background-color: #f4f0ed;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.section-header p {
+  max-width: 560px;
+  margin: 0 auto;
+  color: #666666;
+}
+
+.page-hero {
+  padding: 4rem 0 2.5rem;
+  background-color: #f5f1ee;
+  text-align: left;
+}
+
+.page-hero h1 {
+  font-size: 2.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.page-hero p {
+  color: #555555;
+}
