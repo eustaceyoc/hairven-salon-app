@@ -151,3 +151,69 @@ textarea {
   font-size: 0.8rem;
 }
 
+/* Header & Nav Elements */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: #ffffff;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.logo-main {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 1rem;
+}
+
+.logo-sub {
+  font-size: 0.65rem;
+  color: #888888;
+}
+
+.site-nav ul {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.site-nav a {
+  font-size: 0.9rem;
+  color: #444444;
+  position: relative;
+}
+
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.3rem;
+  width: 0;
+  height: 2px;
+  background-color: #8b4a55;
+  transition: width 0.2s ease;
+}
+
+.site-nav a:hover::after,
+.site-nav a.active::after {
+  width: 100%;
+}
+
+.site-nav .btn-small {
+  color: #ffffff;
+}
