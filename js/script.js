@@ -3,6 +3,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   setupHomeTestimonials();
   setupContactForm();
+  setupBookingForm();
 });
 
 /* Testimonials slider (home) */
