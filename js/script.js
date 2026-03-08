@@ -2,6 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   setupYear();
+  setupMobileNav();
   setupHomeTestimonials();
   setupContactForm();
   setupBookingForm();
@@ -13,6 +14,29 @@ function setupYear() {
   const yearEls = document.querySelectorAll("#year");
   const year = new Date().getFullYear();
   yearEls.forEach((el) => (el.textContent = year));
+}
+
+/* Mobile navigation */
+function setupMobileNav() {
+  const navToggle = document.querySelector(".nav-toggle");
+  const nav = document.querySelector(".site-nav");
+
+  if (!navToggle || !nav) return;
+
+  navToggle.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("is-open");
+    navToggle.classList.toggle("is-open", isOpen);
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  nav.addEventListener("click", (event) => {
+    const target = event.target;
+    if (target instanceof HTMLElement && target.tagName === "A") {
+      nav.classList.remove("is-open");
+      navToggle.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+    }
+  });
 }
 
 /* Testimonials slider (home) */
