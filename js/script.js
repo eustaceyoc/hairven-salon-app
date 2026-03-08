@@ -1,10 +1,19 @@
 // Shared JavaScript
 
 document.addEventListener("DOMContentLoaded", () => {
+  setupYear();
   setupHomeTestimonials();
   setupContactForm();
   setupBookingForm();
 });
+
+/* Year in footer */
+
+function setupYear() {
+  const yearEls = document.querySelectorAll("#year");
+  const year = new Date().getFullYear();
+  yearEls.forEach((el) => (el.textContent = year));
+}
 
 /* Testimonials slider (home) */
 function setupHomeTestimonials() {
@@ -131,6 +140,13 @@ function setupBookingForm() {
 /* Helpers */
 function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function isFutureDate(dateStr) {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const selected = new Date(dateStr + "T00:00:00");
+  return selected.getTime() >= today.getTime();
 }
 
 function showFormError(messageEl, text) {
