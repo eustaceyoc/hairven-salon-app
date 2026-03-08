@@ -363,12 +363,11 @@ textarea {
 }
 
 /* Lightbox */
-
 .lightbox {
   position: fixed;
   inset: 0;
   background-color: rgba(15, 10, 9, 0.9);
-  display: none; /* changed: hidden by default */
+  display: none;
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
@@ -408,4 +407,50 @@ textarea {
 
 .lightbox-next {
   right: 1.5rem;
+}
+
+/* Testimonials */
+.testimonial-slider {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.testimonial-slide {
+  display: none;
+}
+
+.testimonial-slide.active {
+  display: block;
+}
+
+.testimonial-text {
+  font-size: 1.1rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.testimonial-author {
+  font-weight: 600;
+  color: #777777;
+}
+
+.testimonial-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.slider-prev,
+.slider-next {
+  border: none;
+  background-color: #efe1db;
+  color: #8b4a55;
+  border-radius: 999px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  font-size: 1.2rem;
 }
