@@ -76,3 +76,64 @@ function setupContactForm() {
     form.reset();
   });
 }
+
+/* Booking form validation */
+function setupBookingForm() {
+  const form = document.querySelector(".booking-form");
+  if (!form) return;
+
+  const messageEl = form.querySelector(".form-message");
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!(messageEl instanceof HTMLElement)) return;
+
+    const name = form.querySelector("#booking-name");
+    const phone = form.querySelector("#booking-phone");
+    const email = form.querySelector("#booking-email");
+    const service = form.querySelector("#booking-service");
+    const date = form.querySelector("#booking-date");
+    const time = form.querySelector("#booking-time");
+
+    if (!name || !phone || !email || !service || !date || !time) return;
+
+    const nameVal = name.value.trim();
+    const phoneVal = phone.value.trim();
+    const emailVal = email.value.trim();
+    const serviceVal = service.value;
+    const dateVal = date.value;
+    const timeVal = time.value;
+
+    if (!nameVal || !phoneVal || !emailVal || !serviceVal || !dateVal || !timeVal) {
+      showFormError(messageEl, "Please complete all required fields.");
+      return;
+    }
+
+    if (!isValidEmail(emailVal)) {
+      showFormError(messageEl, "Please enter a valid email address.");
+      return;
+    }
+
+    if (!isFutureDate(dateVal)) {
+      showFormError(messageEl, "Please select a date in the future.");
+      return;
+    }
+
+    messageEl.textContent =
+      "Thank you! Your booking request has been submitted. We will confirm by email.";
+    messageEl.classList.remove("error");
+    messageEl.classList.add("success");
+    form.reset();
+  });
+}
+
+/* Helpers */
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function showFormError(messageEl, text) {
+  messageEl.textContent = text;
+  messageEl.classList.remove("success");
+  messageEl.classList.add("error");
+}
