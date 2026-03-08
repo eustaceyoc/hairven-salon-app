@@ -627,3 +627,15 @@ form {
   color: #1f7a28;
 }
 
+/* CTA Section */
+.cta-section {
+  background-color: #8b4a55;
+  color: #ffffff;
+}
+
+.cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
