@@ -489,3 +489,87 @@ textarea {
   white-space: nowrap;
 }
 
+/* Team & List */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.team-member img {
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  height: 220px;
+  object-fit: cover;
+}
+
+.team-member h3 {
+  margin: 0 0 0.2rem;
+}
+
+.team-role {
+  margin: 0 0 0.6rem;
+  color: #777777;
+  font-size: 0.9rem;
+}
+
+.feature-list {
+  max-width: 620px;
+  margin: 0 auto;
+  padding-left: 1rem;
+}
+
+.feature-list li {
+  position: relative;
+  margin-bottom: 0.6rem;
+}
+
+.feature-list li::before {
+  content: "•";
+  position: absolute;
+  left: -1rem;
+  color: #8b4a55;
+}
+
+/* Team and List */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.team-member img {
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  height: 220px;
+  object-fit: cover;
+}
+
+.team-member h3 {
+  margin: 0 0 0.2rem;
+}
+
+.team-role {
+  margin: 0 0 0.6rem;
+  color: #777777;
+  font-size: 0.9rem;
+}
+
+.feature-list {
+  max-width: 620px;
+  margin: 0 auto;
+  padding-left: 1rem;
+}
+
+.feature-list li {
+  position: relative;
+  margin-bottom: 0.6rem;
+}
+
+.feature-list li::before {
+  content: "•";
+  position: absolute;
+  left: -1rem;
+  color: #8b4a55;
+}
+
