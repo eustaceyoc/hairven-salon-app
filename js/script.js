@@ -23,19 +23,53 @@ function setupMobileNav() {
 
   if (!navToggle || !nav) return;
 
-  navToggle.addEventListener("click", () => {
-    const isOpen = nav.classList.toggle("is-open");
-    navToggle.classList.toggle("is-open", isOpen);
-    navToggle.setAttribute("aria-expanded", String(isOpen));
+  const openNav = () => {
+    nav.classList.add("is-open");
+    navToggle.classList.add("is-open");
+    navToggle.setAttribute("aria-expanded", "true");
+  };
+
+  const closeNav = () => {
+    nav.classList.remove("is-open");
+    navToggle.classList.remove("is-open");
+    navToggle.setAttribute("aria-expanded", "false");
+  };
+
+  const toggleNav = () => {
+    const isOpen = nav.classList.contains("is-open");
+    if (isOpen) {
+      closeNav();
+    } else {
+      openNav();
+    }
+  };
+
+  navToggle.addEventListener("click", (event) => {
+    event.stopPropagation();
+    toggleNav();
   });
 
   nav.addEventListener("click", (event) => {
     const target = event.target;
     if (target instanceof HTMLElement && target.tagName === "A") {
-      nav.classList.remove("is-open");
-      navToggle.classList.remove("is-open");
-      navToggle.setAttribute("aria-expanded", "false");
+      closeNav();
     }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!nav.classList.contains("is-open")) return;
+    const target = event.target;
+    if (!(target instanceof Node)) return;
+    if (nav.contains(target) || navToggle.contains(target)) return;
+    closeNav();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeNav();
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) closeNav();
   });
 }
 
