@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupYear();
   setupMobileNav();
   setupHomeTestimonials();
+  setupGalleryLightbox();
   setupContactForm();
   setupBookingForm();
 });
@@ -141,98 +142,6 @@ function setupGalleryLightbox() {
   });
 }
 
-  function openLightbox(index) {
-    currentIndex = index;
-    imageEl.src = images[currentIndex].src;
-    imageEl.alt = images[currentIndex].alt || "Gallery image";
-    lightbox.classList.add("is-open");
-    lightbox.classList.remove("is-closed");
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeLightbox() {
-    lightbox.classList.remove("is-open");
-    lightbox.classList.add("is-closed");
-    document.body.style.overflow = "";
-  }
-
-  function showNext(step) {
-    const total = images.length;
-    currentIndex = (currentIndex + step + total) % total;
-    imageEl.src = images[currentIndex].src;
-    imageEl.alt = images[currentIndex].alt || "Gallery image";
-  }
-
-  images.forEach((img, idx) => {
-    const button = img.closest("button");
-    if (!button) return;
-    button.addEventListener("click", () => openLightbox(idx));
-  });
-
-  closeBtn.addEventListener("click", closeLightbox);
-  prevBtn.addEventListener("click", () => showNext(-1));
-  nextBtn.addEventListener("click", () => showNext(1));
-
-  lightbox.addEventListener("click", (event) => {
-    if (event.target === lightbox) {
-      closeLightbox();
-    }
-  });
-
-  document.addEventListener("keydown", (event) => {
-    const isOpen = lightbox.classList.contains("is-open");
-    if (!isOpen) return;
-
-    if (event.key === "Escape") closeLightbox();
-    if (event.key === "ArrowLeft") showNext(-1);
-    if (event.key === "ArrowRight") showNext(1);
-  });
-}
-
-  function openLightbox(index) {
-    currentIndex = index;
-    imageEl.src = images[currentIndex].src;
-    imageEl.alt = images[currentIndex].alt || "Gallery image";
-    lightbox.hidden = false;
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeLightbox() {
-    lightbox.hidden = true;
-    document.body.style.overflow = "";
-  }
-
-  function showNext(step) {
-    const total = images.length;
-    currentIndex = (currentIndex + step + total) % total;
-    imageEl.src = images[currentIndex].src;
-    imageEl.alt = images[currentIndex].alt || "Gallery image";
-  }
-
-  // Attach click handlers
-  images.forEach((img, idx) => {
-    const button = img.closest("button");
-    if (!button) return;
-    button.addEventListener("click", () => openLightbox(idx));
-  });
-
-  closeBtn.addEventListener("click", closeLightbox);
-  prevBtn.addEventListener("click", () => showNext(-1));
-  nextBtn.addEventListener("click", () => showNext(1));
-
-  lightbox.addEventListener("click", (event) => {
-    if (event.target === lightbox) {
-      closeLightbox();
-    }
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (lightbox.hidden) return;
-    if (event.key === "Escape") closeLightbox();
-    if (event.key === "ArrowLeft") showNext(-1);
-    if (event.key === "ArrowRight") showNext(1);
-  });
-}
 
 /* Contact form */
 function setupContactForm() {
