@@ -80,7 +80,7 @@ function setupGalleryLightbox() {
   if (!lightbox || !imageEl || !closeBtn || !prevBtn || !nextBtn) return;
 
   // Start closed
-  lightbox.hidden = true;
+  lightbox.classList.remove("is-open");
 
   // Collect all gallery images (home + gallery page)
   const images = Array.from(
@@ -99,12 +99,12 @@ function setupGalleryLightbox() {
   function openLightbox(index) {
     currentIndex = index;
     updateImage();
-    lightbox.hidden = false;
+    lightbox.classList.add("is-open");
     document.body.style.overflow = "hidden";
   }
 
   function closeLightbox() {
-    lightbox.hidden = true;
+    lightbox.classList.remove("is-open");
     document.body.style.overflow = "";
   }
 
@@ -134,7 +134,7 @@ function setupGalleryLightbox() {
 
   // Keyboard controls
   document.addEventListener("keydown", (event) => {
-    if (lightbox.hidden) return;
+    if (!lightbox.classList.contains("is-open")) return;
 
     if (event.key === "Escape") closeLightbox();
     if (event.key === "ArrowLeft") showNext(-1);
